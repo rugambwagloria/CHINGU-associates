@@ -2,7 +2,7 @@
   box-shadow: $navbar-box-shadow;
 
   .navbar-brand {
-    color: $dark;
+    color: red;
     @include font-size($font-size-sm);
   }
   .nav-link {
@@ -34,7 +34,7 @@
     .navbar-toggler {
       .navbar-toggler-icon {
         .navbar-toggler-bar {
-          background: $white;
+          background:red;
         }
       }
     }

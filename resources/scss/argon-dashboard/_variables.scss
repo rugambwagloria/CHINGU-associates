@@ -3,7 +3,7 @@
 // Variables should follow the `$component-state-property-size` formula for
 // consistent naming. Ex: $nav-link-disabled-color and $modal-content-box-shadow-xs.
 
-$argon-background-color: #ffffff !default; // Testing
+$argon-background-color: #b13939 ; // Testing
 $font-color:            #67748e !default;
 $h-color:               #344767 !default;
 
@@ -52,7 +52,7 @@ $colors: (
 ) !default;
 // scss-docs-end colors-map
 
-$primary:       #fb6340 !default;
+$primary:       #6d2d1e !default;
 $secondary:     #8392ab !default;
 $info:          #11cdef !default;
 $success:       #2dce89 !default;
@@ -76,8 +76,8 @@ $theme-colors: (
 // scss-docs-end theme-colors-map
 
 // Gradient colors
-$primary-gradient:            #fb6340 !default;
-$primary-gradient-state:      #f56036 !default;
+$primary-gradient:            #5d1c0e !default;
+$primary-gradient-state:      #49190b !default;
 
 $secondary-gradient:          #627594 !default;
 $secondary-gradient-state:    #a8b8d8 !default;

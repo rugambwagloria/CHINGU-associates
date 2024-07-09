@@ -4,8 +4,8 @@
     @include('layouts.navbars.guest.navbar')
     <main class="main-content  mt-0">
         <div class="page-header align-items-start min-vh-50 pt-5 pb-11 m-3 border-radius-lg"
-            style="background-image: url('public/mathematicsimages/mathematics challenge image.jpg'); background-position: top;">
-            
+            style="background-image: url('/images/pupil 2.jpg'); background-position: top;">
+            <span class="mask bg-gradient-dark opacity-6"></span>
             <div class="container">
                 <div class="row justify-content-center">
                     <div class="col-lg-5 text-center mx-auto">

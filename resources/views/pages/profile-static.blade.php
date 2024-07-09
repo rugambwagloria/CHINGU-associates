@@ -61,35 +61,35 @@
                         </div>
                     </div>
                     <div class="card-body">
-                        <p class="text-uppercase text-sm">User Information</p>
+                        <p class="text-uppercase text-sm">School Information</p>
                         <div class="row">
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <label for="example-text-input" class="form-control-label">Username</label>
+                                    <label for="example-text-input" class="form-control-label">School name</label>
                                     <input class="form-control" type="text" value="lucky.jesse">
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <label for="example-text-input" class="form-control-label">Email address</label>
+                                    <label for="example-text-input" class="form-control-label">Representative email</label>
                                     <input class="form-control" type="email" value="jesse@example.com">
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <label for="example-text-input" class="form-control-label">First name</label>
+                                    <label for="example-text-input" class="form-control-label"></label>
                                     <input class="form-control" type="text" value="Jesse">
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <label for="example-text-input" class="form-control-label">Last name</label>
+                                    <label for="example-text-input" class="form-control-label"></label>
                                     <input class="form-control" type="text" value="Lucky">
                                 </div>
                             </div>
                         </div>
                         <hr class="horizontal dark">
-                        <p class="text-uppercase text-sm">Contact Information</p>
+                        
                         <div class="row">
                             <div class="col-md-12">
                                 <div class="form-group">
