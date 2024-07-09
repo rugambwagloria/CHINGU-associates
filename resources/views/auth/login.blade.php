@@ -55,7 +55,7 @@
                             </div>
                             <div
                                  class="col-6 d-lg-flex d-done h-100 my-auto pe-0 position-absolute top-0 end-0 texr-center justify-centre"
-                            </div>
+                         </div>
                         </div>
                         
                     </div>
