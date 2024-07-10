@@ -2,12 +2,13 @@
 
 @section('content')
     @include('layouts.navbars.auth.topnav', ['title' => 'Your Profile'])
+    
     <div class="card shadow-lg mx-4 card-profile-bottom">
         <div class="card-body p-3">
             <div class="row gx-4">
                 <div class="col-auto">
                     <div class="avatar avatar-xl position-relative">
-                        <img src="/images/pupil 2.jpg" alt="profile_image" class="w-100 border-radius-lg shadow-sm">
+                        <img src="/images/pupil.jpg" alt="profile_image" class="w-100 border-radius-lg shadow-sm">
                     </div>
                 </div>
                 <div class="col-auto my-auto">
@@ -80,14 +81,14 @@
                                 <div class="col-md-12">
                                     <div class="form-group">
                                         <label for="example-text-input" class="form-control-label">School District</label>
-                                        <input class="form-control" type="text" name="district"
+                                        <input class="form-control" type="text" name="school_district"
                                             value="{{ old('district', auth()->user()->district) }}">
                                     </div>
                                 </div>
                                 <div class="col-md-4">
                                     <div class="form-group">
                                         <label for="example-text-input" class="form-control-label">SchoolRegNo</label>
-                                        <input class="form-control" type="text" name="registration number" value="{{ old('SchoolRegNo', auth()->user()->SchoolRegNo) }}">
+                                        <input class="form-control" type="text" name="school_regNo" value="{{ old('SchoolRegNo', auth()->user()->SchoolRegNo) }}">
                                     </div>
                                 </div>
                                 
@@ -99,20 +100,20 @@
                                     <div class="col-md-6"> >
                                        <div class="form-group">
                                         <label for="example-text-input" class="form-control-label">Representative first name</label>
-                                        <input class="form-control" type="text" name="firstname"  value="{{ old('firstname', auth()->user()->firstname) }}">
+                                        <input class="form-control" type="text" name="rep_fname"  value="{{ old('firstname', auth()->user()->firstname) }}">
                                     </div>
                                 </div>
                             
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label for="example-text-input" class="form-control-label">Representative last name</label>
-                                        <input class="form-control" type="text" name="lastname" value="{{ old('lastname', auth()->user()->lastname) }}">
+                                        <input class="form-control" type="text" name="rep_lname" value="{{ old('lastname', auth()->user()->lastname) }}">
                                     </div>
                                     </div>
                                 <div class="col-md-6">
                                      <div class="form-group">
                                         <label for="example-text-input" class="form-control-label">Representative email</label>
-                                        <input class="form-control" type="email" name="email" value="{{ old('email', auth()->user()->email) }}">
+                                        <input class="form-control" type="email" name="rep_email" value="{{ old('email', auth()->user()->email) }}">
                                     </div>
                                 </div>
                             </div>

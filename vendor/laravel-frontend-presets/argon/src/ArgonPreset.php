@@ -107,12 +107,13 @@ class ArgonPreset extends Preset
             FILE_APPEND
         );
 
+
         // Copy argon auth views from the stubs folder
         static::copyDirectory('resources/views/auth', resource_path('views/auth'));
     }
 
     /**
-     * Copy user management and profile edit files
+     * Copy Challenge Management and profile edit files
      *
      * @return void
      */

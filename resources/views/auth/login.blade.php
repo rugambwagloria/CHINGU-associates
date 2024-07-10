@@ -10,7 +10,7 @@
     </div>
     <main class="main-content  mt-0">
         <section>
-            <div class="page-header min-vh-100">
+            <div class="page-header min-vh-100" style="background-image:url('/images/pupil 10.jpeg')">
                 <div class="container">
                     <div class="row">
                         <div class="col-xl-4 col-lg-5 col-md-7 d-flex flex-column mx-lg-0 mx-auto">
@@ -41,24 +41,27 @@
                                     </form>
                                 </div>
                                 <div class="card-footer text-center pt-0 px-lg-2 px-1">
-                                    <p class="mb-1 text-sm mx-auto" >
-                                       Welcome to the Mathematics Challenge web application Forgot you password? Reset your password
-                                        <a href="{{ route('reset-password') }}" class="text-primary text-gradient font-weight-bold">here</a>
+                                    <p class="mb-1 text-sm mx-auto"style="font-size: 30px; font-weight: bold; font-family: Arial, sans-serif;color:white;">
+    Forgot your password? 
+</p>
+
+                                   <p style="font-size: 30px; font-weight: bold; font-family: Arial, sans-serif;color:white;">    Welcome to the Mathematics Challenge web application </p>
+                                    <p> <a href="{{ route('reset-password') }}" class="text-primary text-gradient font-weight-bold"style="color:white">Reset password here</a>
                                     </p>
                                 </div>
                                 <div class="card-footer text-center pt-0 px-lg-2 px-1">
-                                    <p class="mb-4 text-sm mx-auto">
-                                        Don't have an account?
-                                        <a href="{{ route('register') }}" class="text-primary text-gradient font-weight-bold">Sign up</a>
+                                    <p class="mb-4 text-sm mx-auto"><b>
+                                        Don't have an account?</b>
+                                        <a href="{{ route('register') }}" class="text-primary text-gradient font-weight-bold"><b>Sign up<b></a>
                                     </p>
                                 </div>
                             </div>
                         </div>
                         <div
-                            class="col-6 d-lg-flex d-none h-100 my-auto pe-0 position-absolute top-0 end-0 text-center justify-content-center flex-column">
+                            class="col-6 d-lg-flex d-none h-100 my-auto pe-0 position-absolute top-0 end-0 text-center justify-content-center flex-column"style="color:blue;">
                             <div class="position-relative bg-gradient-primary h-100 m-3 px-7 border-radius-lg d-flex flex-column justify-content-center overflow-hidden"
-                                style="background-image: url('/images/math.jpg');color:blue;
-              background-size: cover;">
+                                style="color:blue; background-image: url('/images/img 1.jpg');
+              background-size:cover;">
                                 <span class="mask bg-gradient-primary opacity-6"></span>
                                 <h4 class="mt-5 text-white font-weight-bolder position-relative"></h4>
                                 <p class="text-white position-relative"></p>

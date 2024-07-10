@@ -24,7 +24,11 @@ use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\UserProfileController;
 use App\Http\Controllers\ResetPassword;
-use App\Http\Controllers\ChangePassword;            
+use App\Http\Controllers\ChangePassword;   
+use App\Http\Controllers\ChallengController;
+ 
+
+        
             
 
 Route::get('/', function () {return redirect('/dashboard');})->middleware('auth');
@@ -47,6 +51,12 @@ Route::group(['middleware' => 'auth'], function () {
 	Route::get('/sign-up-static', [PageController::class, 'signup'])->name('sign-up-static'); 
 	Route::get('/{page}', [PageController::class, 'index'])->name('page');
 	Route::post('logout', [LoginController::class, 'logout'])->name('logout');
+
 });
 //Posts endpoint
-Route::get('/posts',[PostsController::class,'index']);
+use App\Http\Controllers\SchoolController;  
+Route::resource('schools', 'SchoolController');
+use App\Http\Controllers\ChallengeController;
+Route::get('/challenge-creation', 'ChallengeController@index')->name('challenge-creation');
+Route::get('/challenge-creation', 'ChallengeController@create')->name('challenge-creation');
+Route::post('/challenges', 'ChallengeController@store')->name('challenges.store');

@@ -66,13 +66,13 @@
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label for="example-text-input" class="form-control-label">School name</label>
-                                    <input class="form-control" type="text" value="lucky.jesse">
+                                    <input class="form-control" type="text" value="lucky.jesse" name="name">
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label for="example-text-input" class="form-control-label">Representative email</label>
-                                    <input class="form-control" type="email" value="jesse@example.com">
+                                    <input class="form-control" type="email" value="jesse@example.com" name="email">
                                 </div>
                             </div>
                             <div class="col-md-6">

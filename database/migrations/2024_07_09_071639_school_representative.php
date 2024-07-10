@@ -26,8 +26,7 @@ return new class extends Migration
             $table->string('rep_password', 150);
             $table->unsignedBigInteger('admin_id')->nullable();
             $table->string('rep_username', 55)->unique();
-            $table->date('rep_dob')->nullable();
-            $table->string('image', 255)->nullable();
+    
             $table->timestamps();
 
             // Define foreign key
