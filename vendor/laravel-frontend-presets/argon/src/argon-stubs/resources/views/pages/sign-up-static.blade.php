@@ -25,9 +25,9 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link me-2" href="{{ route('profile-static') }}">
+                    <a class="nav-link me-2" href="{{ route('school-static') }}">
                         <i class="fa fa-user opacity-6  me-1"></i>
-                        Profile
+                        school
                     </a>
                 </li>
                 <li class="nav-item">

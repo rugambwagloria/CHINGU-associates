@@ -29,7 +29,7 @@ final class CliRequest extends Request
         );
     }
 
-    // Methods below allow to populate a profile, thus enable search and filtering
+    // Methods below allow to populate a school, thus enable search and filtering
     public function getUri(): string
     {
         if ($this->server->has('SYMFONY_CLI_BINARY_NAME')) {

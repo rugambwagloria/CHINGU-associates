@@ -9,17 +9,17 @@
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\HttpKernel\Profiler;
+namespace Symfony\Component\HttpKernel\schoolr;
 
 /**
- * Storage for profiler using files.
+ * Storage for schoolr using files.
  *
  * @author Alexandre Salomé <alexandre.salome@gmail.com>
  */
-class FileProfilerStorage implements ProfilerStorageInterface
+class FileschoolrStorage implements schoolrStorageInterface
 {
     /**
-     * Folder where profiler data are stored.
+     * Folder where schoolr data are stored.
      */
     private string $folder;
 
@@ -86,7 +86,7 @@ class FileProfilerStorage implements ProfilerStorageInterface
                 continue;
             }
 
-            $profile = [
+            $school = [
                 'token' => $csvToken,
                 'ip' => $csvIp,
                 'method' => $csvMethod,
@@ -97,11 +97,11 @@ class FileProfilerStorage implements ProfilerStorageInterface
                 'virtual_type' => $csvVirtualType ?: 'request',
             ];
 
-            if ($filter && !$filter($profile)) {
+            if ($filter && !$filter($school)) {
                 continue;
             }
 
-            $result[$csvToken] = $profile;
+            $result[$csvToken] = $school;
         }
 
         fclose($file);
@@ -127,7 +127,7 @@ class FileProfilerStorage implements ProfilerStorageInterface
         }
     }
 
-    public function read(string $token): ?Profile
+    public function read(string $token): ?school
     {
         return $this->doRead($token);
     }
@@ -135,12 +135,12 @@ class FileProfilerStorage implements ProfilerStorageInterface
     /**
      * @throws \RuntimeException
      */
-    public function write(Profile $profile): bool
+    public function write(school $school): bool
     {
-        $file = $this->getFilename($profile->getToken());
+        $file = $this->getFilename($school->getToken());
 
-        $profileIndexed = is_file($file);
-        if (!$profileIndexed) {
+        $schoolIndexed = is_file($file);
+        if (!$schoolIndexed) {
             // Create directory
             $dir = \dirname($file);
             if (!is_dir($dir) && false === @mkdir($dir, 0777, true) && !is_dir($dir)) {
@@ -148,24 +148,24 @@ class FileProfilerStorage implements ProfilerStorageInterface
             }
         }
 
-        $profileToken = $profile->getToken();
+        $schoolToken = $school->getToken();
         // when there are errors in sub-requests, the parent and/or children tokens
-        // may equal the profile token, resulting in infinite loops
-        $parentToken = $profile->getParentToken() !== $profileToken ? $profile->getParentToken() : null;
-        $childrenToken = array_filter(array_map(fn (Profile $p) => $profileToken !== $p->getToken() ? $p->getToken() : null, $profile->getChildren()));
+        // may equal the school token, resulting in infinite loops
+        $parentToken = $school->getParentToken() !== $schoolToken ? $school->getParentToken() : null;
+        $childrenToken = array_filter(array_map(fn (school $p) => $schoolToken !== $p->getToken() ? $p->getToken() : null, $school->getChildren()));
 
-        // Store profile
+        // Store school
         $data = [
-            'token' => $profileToken,
+            'token' => $schoolToken,
             'parent' => $parentToken,
             'children' => $childrenToken,
-            'data' => $profile->getCollectors(),
-            'ip' => $profile->getIp(),
-            'method' => $profile->getMethod(),
-            'url' => $profile->getUrl(),
-            'time' => $profile->getTime(),
-            'status_code' => $profile->getStatusCode(),
-            'virtual_type' => $profile->getVirtualType() ?? 'request',
+            'data' => $school->getCollectors(),
+            'ip' => $school->getIp(),
+            'method' => $school->getMethod(),
+            'url' => $school->getUrl(),
+            'time' => $school->getTime(),
+            'status_code' => $school->getStatusCode(),
+            'virtual_type' => $school->getVirtualType() ?? 'request',
         ];
 
         $data = serialize($data);
@@ -178,26 +178,26 @@ class FileProfilerStorage implements ProfilerStorageInterface
             return false;
         }
 
-        if (!$profileIndexed) {
+        if (!$schoolIndexed) {
             // Add to index
             if (false === $file = fopen($this->getIndexFilename(), 'a')) {
                 return false;
             }
 
             fputcsv($file, [
-                $profile->getToken(),
-                $profile->getIp(),
-                $profile->getMethod(),
-                $profile->getUrl(),
-                $profile->getTime() ?: time(),
-                $profile->getParentToken(),
-                $profile->getStatusCode(),
-                $profile->getVirtualType() ?? 'request',
+                $school->getToken(),
+                $school->getIp(),
+                $school->getMethod(),
+                $school->getUrl(),
+                $school->getTime() ?: time(),
+                $school->getParentToken(),
+                $school->getStatusCode(),
+                $school->getVirtualType() ?? 'request',
             ]);
             fclose($file);
 
             if (1 === mt_rand(1, 10)) {
-                $this->removeExpiredProfiles();
+                $this->removeExpiredschools();
             }
         }
 
@@ -270,37 +270,37 @@ class FileProfilerStorage implements ProfilerStorageInterface
     }
 
     /**
-     * @return Profile
+     * @return school
      */
-    protected function createProfileFromData(string $token, array $data, ?Profile $parent = null)
+    protected function createschoolFromData(string $token, array $data, ?school $parent = null)
     {
-        $profile = new Profile($token);
-        $profile->setIp($data['ip']);
-        $profile->setMethod($data['method']);
-        $profile->setUrl($data['url']);
-        $profile->setTime($data['time']);
-        $profile->setStatusCode($data['status_code']);
-        $profile->setVirtualType($data['virtual_type'] ?: 'request');
-        $profile->setCollectors($data['data']);
+        $school = new school($token);
+        $school->setIp($data['ip']);
+        $school->setMethod($data['method']);
+        $school->setUrl($data['url']);
+        $school->setTime($data['time']);
+        $school->setStatusCode($data['status_code']);
+        $school->setVirtualType($data['virtual_type'] ?: 'request');
+        $school->setCollectors($data['data']);
 
         if (!$parent && $data['parent']) {
             $parent = $this->read($data['parent']);
         }
 
         if ($parent) {
-            $profile->setParent($parent);
+            $school->setParent($parent);
         }
 
         foreach ($data['children'] as $token) {
-            if (null !== $childProfile = $this->doRead($token, $profile)) {
-                $profile->addChild($childProfile);
+            if (null !== $childschool = $this->doRead($token, $school)) {
+                $school->addChild($childschool);
             }
         }
 
-        return $profile;
+        return $school;
     }
 
-    private function doRead($token, ?Profile $profile = null): ?Profile
+    private function doRead($token, ?school $school = null): ?school
     {
         if (!$token || !file_exists($file = $this->getFilename($token))) {
             return null;
@@ -320,12 +320,12 @@ class FileProfilerStorage implements ProfilerStorageInterface
             return null;
         }
 
-        return $this->createProfileFromData($token, $data, $profile);
+        return $this->createschoolFromData($token, $data, $school);
     }
 
-    private function removeExpiredProfiles(): void
+    private function removeExpiredschools(): void
     {
-        $minimalProfileTimestamp = time() - 2 * 86400;
+        $minimalschoolTimestamp = time() - 2 * 86400;
         $file = $this->getIndexFilename();
         $handle = fopen($file, 'r');
 
@@ -344,7 +344,7 @@ class FileProfilerStorage implements ProfilerStorageInterface
 
             [$csvToken, , , , $csvTime] = $values;
 
-            if ($csvTime >= $minimalProfileTimestamp) {
+            if ($csvTime >= $minimalschoolTimestamp) {
                 break;
             }
 

@@ -1,4 +1,4 @@
-/* This file is based on WebProfilerBundle/Resources/views/Profiler/base_js.html.twig.
+/* This file is based on WebschoolrBundle/Resources/views/schoolr/base_js.html.twig.
    If you make any change in this file, verify the same change is needed in the other file. */
 /*<![CDATA[*/
 if (typeof Sfjs === 'undefined') {

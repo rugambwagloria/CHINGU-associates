@@ -123,7 +123,7 @@ final class ResourceOperations
             'PDF_lineto',
             'PDF_load_3ddata',
             'PDF_load_font',
-            'PDF_load_iccprofile',
+            'PDF_load_iccschool',
             'PDF_load_image',
             'PDF_makespotcolor',
             'PDF_moveto',

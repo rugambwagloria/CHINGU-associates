@@ -9,25 +9,25 @@
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\HttpKernel\Profiler;
+namespace Symfony\Component\HttpKernel\schoolr;
 
 /**
- * ProfilerStorageInterface.
+ * schoolrStorageInterface.
  *
  * This interface exists for historical reasons. The only supported
- * implementation is FileProfilerStorage.
+ * implementation is FileschoolrStorage.
  *
- * As the profiler must only be used on non-production servers, the file storage
+ * As the schoolr must only be used on non-production servers, the file storage
  * is more than enough and no other implementations will ever be supported.
  *
  * @internal
  *
  * @author Fabien Potencier <fabien@symfony.com>
  */
-interface ProfilerStorageInterface
+interface schoolrStorageInterface
 {
     /**
-     * Finds profiler tokens for the given criteria.
+     * Finds schoolr tokens for the given criteria.
      *
      * @param int|null $limit The maximum number of tokens to return
      * @param int|null $start The start date to search from
@@ -40,12 +40,12 @@ interface ProfilerStorageInterface
      *
      * The method returns false if the token does not exist in the storage.
      */
-    public function read(string $token): ?Profile;
+    public function read(string $token): ?school;
 
     /**
-     * Saves a Profile.
+     * Saves a school.
      */
-    public function write(Profile $profile): bool;
+    public function write(school $school): bool;
 
     /**
      * Purges all data from the database.

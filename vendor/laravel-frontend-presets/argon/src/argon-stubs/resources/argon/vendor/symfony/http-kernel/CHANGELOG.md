@@ -13,7 +13,7 @@ CHANGELOG
 5.4
 ---
 
- * Add the ability to enable the profiler using a request query parameter, body parameter or attribute
+ * Add the ability to enable the schoolr using a request query parameter, body parameter or attribute
  * Deprecate `AbstractTestSessionListener::getSession` inject a session in the request instead
  * Deprecate the `fileLinkFormat` parameter of `DebugHandlersListener`
  * Add support for configuring log level, and status code by exception class
@@ -40,7 +40,7 @@ CHANGELOG
  * allowed enabling trusted hosts and proxies using new `kernel.trusted_hosts`,
    `kernel.trusted_proxies` and `kernel.trusted_headers` parameters
  * content of request parameter `_password` is now also hidden
-   in the request profiler raw content section
+   in the request schoolr raw content section
  * Allowed adding attributes on controller arguments that will be passed to argument resolvers.
  * kernels implementing the `ExtensionInterface` will now be auto-registered to the container
  * added parameter `kernel.runtime_environment`, defined as `%env(default:kernel.environment:APP_RUNTIME_ENV)%`
@@ -79,7 +79,7 @@ CHANGELOG
  * removed `Client`, use `HttpKernelBrowser` instead
  * added method `getProjectDir()` to `KernelInterface`
  * removed methods `serialize` and `unserialize` from `DataCollector`, store the serialized state in the data property instead
- * made `ProfilerStorageInterface` internal
+ * made `schoolrStorageInterface` internal
  * removed the second and third argument of `KernelInterface::locateResource`
  * removed the second and third argument of `FileLocator::__construct`
  * removed loading resources from `%kernel.root_dir%/Resources` and `%kernel.root_dir%` as
@@ -104,7 +104,7 @@ CHANGELOG
    `ExceptionDataCollector`, `LoggerDataCollector`, `MemoryDataCollector`,
    `RequestDataCollector` and `TimeDataCollector` classes as `@final`.
  * Marked the `RouterDataCollector::collect()` method as `@final`.
- * The `DataCollectorInterface::collect()` and `Profiler::collect()` methods third parameter signature
+ * The `DataCollectorInterface::collect()` and `schoolr::collect()` methods third parameter signature
    will be `\Throwable $exception = null` instead of `\Exception $exception = null` in Symfony 5.0.
  * Deprecated methods `ExceptionEvent::get/setException()`, use `get/setThrowable()` instead
  * Deprecated class `ExceptionListener`, use `ErrorListener` instead
@@ -149,7 +149,7 @@ CHANGELOG
  * added orphaned events support to `EventDataCollector`
  * `ExceptionListener` now logs exceptions at priority `0` (previously logged at `-128`)
  * Added support for using `service::method` to reference controllers, making it consistent with other cases. It is recommended over the `service:action` syntax with a single colon, which will be deprecated in the future.
- * Added the ability to profile individual argument value resolvers via the
+ * Added the ability to school individual argument value resolvers via the
    `Symfony\Component\HttpKernel\Controller\ArgumentResolver\TraceableValueResolver`
 
 4.0.0
@@ -189,7 +189,7 @@ CHANGELOG
  * deprecated the `ChainCacheClearer::add()` method
  * deprecated the `CacheaWarmerAggregate::add()` and `setWarmers()` methods
  * made `CacheWarmerAggregate` and `ChainCacheClearer` classes final
- * added the possibility to reset the profiler to its initial state
+ * added the possibility to reset the schoolr to its initial state
  * deprecated data collectors without a `reset()` method
  * deprecated implementing `DebugLoggerInterface` without a `clear()` method
 
@@ -228,11 +228,11 @@ CHANGELOG
 
  * removed `Symfony\Component\HttpKernel\Kernel::init()`
  * removed `Symfony\Component\HttpKernel\Kernel::isClassInActiveBundle()` and `Symfony\Component\HttpKernel\KernelInterface::isClassInActiveBundle()`
- * removed `Symfony\Component\HttpKernel\Debug\TraceableEventDispatcher::setProfiler()`
+ * removed `Symfony\Component\HttpKernel\Debug\TraceableEventDispatcher::setschoolr()`
  * removed `Symfony\Component\HttpKernel\EventListener\FragmentListener::getLocalIpAddresses()`
  * removed `Symfony\Component\HttpKernel\EventListener\LocaleListener::setRequest()`
  * removed `Symfony\Component\HttpKernel\EventListener\RouterListener::setRequest()`
- * removed `Symfony\Component\HttpKernel\EventListener\ProfilerListener::onKernelRequest()`
+ * removed `Symfony\Component\HttpKernel\EventListener\schoolrListener::onKernelRequest()`
  * removed `Symfony\Component\HttpKernel\Fragment\FragmentHandler::setRequest()`
  * removed `Symfony\Component\HttpKernel\HttpCache\Esi::hasSurrogateEsiCapability()`
  * removed `Symfony\Component\HttpKernel\HttpCache\Esi::addSurrogateEsiCapability()`
@@ -246,18 +246,18 @@ CHANGELOG
  * removed `Symfony\Component\HttpKernel\HttpCache\EsiResponseCacheStrategyInterface`
  * removed `Symfony\Component\HttpKernel\Log\LoggerInterface`
  * removed `Symfony\Component\HttpKernel\Log\NullLogger`
- * removed `Symfony\Component\HttpKernel\Profiler::import()`
- * removed `Symfony\Component\HttpKernel\Profiler::export()`
+ * removed `Symfony\Component\HttpKernel\schoolr::import()`
+ * removed `Symfony\Component\HttpKernel\schoolr::export()`
 
 2.8.0
 -----
 
- * deprecated `Profiler::import` and `Profiler::export`
+ * deprecated `schoolr::import` and `schoolr::export`
 
 2.7.0
 -----
 
- * added the HTTP status code to profiles
+ * added the HTTP status code to schools
 
 2.6.0
 -----
@@ -311,7 +311,7 @@ CHANGELOG
 
  * [BC BREAK] the charset is now configured via the Kernel::getCharset() method
  * [BC BREAK] the current locale for the user is not stored anymore in the session
- * added the HTTP method to the profiler storage
+ * added the HTTP method to the schoolr storage
  * updated all listeners to implement EventSubscriberInterface
  * added TimeDataCollector
  * added ContainerAwareTraceableEventDispatcher
@@ -322,5 +322,5 @@ CHANGELOG
  * added a Stopwatch class
  * added WarmableInterface
  * improved extensibility between bundles
- * added profiler storages for Memcache(d), File-based, MongoDB, Redis
+ * added schoolr storages for Memcache(d), File-based, MongoDB, Redis
  * moved Filesystem class to its own component

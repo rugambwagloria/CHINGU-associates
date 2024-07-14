@@ -13,7 +13,7 @@
     <body>
         <script>
             document.body.classList.add(
-                localStorage.getItem('symfony/profiler/theme') || (matchMedia('(prefers-color-scheme: dark)').matches ? 'theme-dark' : 'theme-light')
+                localStorage.getItem('symfony/schoolr/theme') || (matchMedia('(prefers-color-scheme: dark)').matches ? 'theme-dark' : 'theme-light')
             );
         </script>
 

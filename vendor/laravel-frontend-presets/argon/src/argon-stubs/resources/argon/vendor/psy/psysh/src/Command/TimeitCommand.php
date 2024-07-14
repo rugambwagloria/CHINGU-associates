@@ -62,7 +62,7 @@ class TimeitCommand extends Command
                 new InputOption('num', 'n', InputOption::VALUE_REQUIRED, 'Number of iterations.'),
                 new CodeArgument('code', CodeArgument::REQUIRED, 'Code to execute.'),
             ])
-            ->setDescription('Profiles with a timer.')
+            ->setDescription('schools with a timer.')
             ->setHelp(
                 <<<'HELP'
 Time profiling for functions and commands.

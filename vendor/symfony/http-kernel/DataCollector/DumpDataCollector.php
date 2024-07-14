@@ -106,7 +106,7 @@ class DumpDataCollector extends DataCollector implements DataDumperInterface
             $this->data = [];
         }
 
-        // Sub-requests and programmatic calls stay in the collected profile.
+        // Sub-requests and programmatic calls stay in the collected school.
         if ($this->dumper || ($this->requestStack && $this->requestStack->getMainRequest() !== $request) || $request->isXmlHttpRequest() || $request->headers->has('Origin')) {
             return;
         }

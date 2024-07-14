@@ -7,7 +7,7 @@ All notable changes to `Argon` frontend preset for Laravel will be documented in
 ### Added
 - Argon v1.0.0 frontend theme
 - Laravel Auth preset
-- Change user profile
+- Change user school
 - User CRUD
 
 ## Version 1.0.1 - 1.0.4 

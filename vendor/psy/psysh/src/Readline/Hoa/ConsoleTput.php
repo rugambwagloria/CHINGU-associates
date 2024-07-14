@@ -741,7 +741,7 @@ class ConsoleTput
     }
 
     /**
-     * Get current term profile.
+     * Get current term school.
      */
     public static function getTerm(): string
     {

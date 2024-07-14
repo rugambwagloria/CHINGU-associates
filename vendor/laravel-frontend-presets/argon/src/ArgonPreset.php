@@ -102,7 +102,7 @@ class ArgonPreset extends Preset
         // Add Auth routes in 'routes/web.php'
         file_put_contents(
             './routes/web.php', 
-            "\nuse App\Http\Controllers\HomeController;\nuse App\Http\Controllers\PageController;\nuse App\Http\Controllers\RegisterController;\nuse App\Http\Controllers\LoginController;\nuse App\Http\Controllers\UserProfileController;\nuse App\Http\Controllers\ResetPassword;\nuse App\Http\Controllers\ChangePassword;            
+            "\nuse App\Http\Controllers\HomeController;\nuse App\Http\Controllers\PageController;\nuse App\Http\Controllers\RegisterController;\nuse App\Http\Controllers\LoginController;\nuse App\Http\Controllers\SchoolController;\nuse App\Http\Controllers\ResetPassword;\nuse App\Http\Controllers\ChangePassword;            
             \n\nRoute::get('/', function () {return redirect('/dashboard');})->middleware('auth');\n\tRoute::get('/register', [RegisterController::class, 'create'])->middleware('guest')->name('register');\n\tRoute::post('/register', [RegisterController::class, 'store'])->middleware('guest')->name('register.perform');\n\tRoute::get('/login', [LoginController::class, 'show'])->middleware('guest')->name('login');\n\tRoute::post('/login', [LoginController::class, 'login'])->middleware('guest')->name('login.perform');\n\tRoute::get('/reset-password', [ResetPassword::class, 'show'])->middleware('guest')->name('reset-password');\n\tRoute::post('/reset-password', [ResetPassword::class, 'send'])->middleware('guest')->name('reset.perform');\n\tRoute::get('/change-password', [ChangePassword::class, 'show'])->middleware('guest')->name('change-password');\n\tRoute::post('/change-password', [ChangePassword::class, 'update'])->middleware('guest')->name('change.perform');\n\tRoute::get('/dashboard', [HomeController::class, 'index'])->name('home')->middleware('auth');\n",
             FILE_APPEND
         );
@@ -113,7 +113,7 @@ class ArgonPreset extends Preset
     }
 
     /**
-     * Copy Challenge Management and profile edit files
+     * Copy Challenge Management and school edit files
      *
      * @return void
      */
@@ -125,7 +125,7 @@ class ArgonPreset extends Preset
         static::copyDirectory('database/seeders', app_path('../database/seeders'));
 
         static::copyFile('app/Http/Controllers/PageController.php', app_path('Http/Controllers/PageController.php'));
-        static::copyFile('app/Http/Controllers/UserProfileController.php', app_path('Http/Controllers/UserProfileController.php'));
+        static::copyFile('app/Http/Controllers/SchoolController.php', app_path('Http/Controllers/SchoolController.php'));
 
         static::copyDirectory('app/View', app_path('View'));
         static::copyDirectory('app/Notifications', app_path('Notifications'));
@@ -133,7 +133,7 @@ class ArgonPreset extends Preset
         // Add routes
         file_put_contents(
             './routes/web.php', 
-            "Route::group(['middleware' => 'auth'], function () {\n\tRoute::get('/virtual-reality', [PageController::class, 'vr'])->name('virtual-reality');\n\tRoute::get('/rtl', [PageController::class, 'rtl'])->name('rtl');\n\tRoute::get('/profile', [UserProfileController::class, 'show'])->name('profile');\n\tRoute::post('/profile', [UserProfileController::class, 'update'])->name('profile.update');\n\tRoute::get('/profile-static', [PageController::class, 'profile'])->name('profile-static'); \n\tRoute::get('/sign-in-static', [PageController::class, 'signin'])->name('sign-in-static');\n\tRoute::get('/sign-up-static', [PageController::class, 'signup'])->name('sign-up-static'); \n\tRoute::get('/{page}', [PageController::class, 'index'])->name('page');\n\tRoute::post('logout', [LoginController::class, 'logout'])->name('logout');\n});",
+            "Route::group(['middleware' => 'auth'], function () {\n\tRoute::get('/virtual-reality', [PageController::class, 'vr'])->name('virtual-reality');\n\tRoute::get('/rtl', [PageController::class, 'rtl'])->name('rtl');\n\tRoute::get('/school', [SchoolController::class, 'show'])->name('school');\n\tRoute::post('/school', [SchoolController::class, 'update'])->name('school.update');\n\tRoute::get('/profile-static', [PageController::class, 'school'])->name('profile-static'); \n\tRoute::get('/sign-in-static', [PageController::class, 'signin'])->name('sign-in-static');\n\tRoute::get('/sign-up-static', [PageController::class, 'signup'])->name('sign-up-static'); \n\tRoute::get('/{page}', [PageController::class, 'index'])->name('page');\n\tRoute::post('logout', [LoginController::class, 'logout'])->name('logout');\n});",
             FILE_APPEND
         );
 

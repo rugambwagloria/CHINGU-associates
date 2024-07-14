@@ -13,13 +13,13 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('question', function (Blueprint $table) {
-            $table->id();
-            $table->string('question', 300);
-            $table->string('answer', 50);
-            $table->integer('marks')->default(1);
-            $table->unsignedBigInteger('challenge_id')->nullable();
-            $table->timestamps();
+        Schema::create('question', function (Blueprint $question) {
+            $question->id();
+            $question->string('question', 300);
+            $question->string('answer', 50);
+            $question->integer('marks')->default(1);
+            $question->unsignedBigInteger('challenge_id')->nullable();
+            $question->timestamps();
         });
     }
 

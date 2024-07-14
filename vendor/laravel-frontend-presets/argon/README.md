@@ -21,7 +21,7 @@ Speed up your web development with the Bootstrap 5 Admin Dashboard built for Lar
 * [Register](#register)
 * [Forgot Password](#forgot-password)
 * [Reset Password](#reset-password)
-* [User Profile](#user-profile)
+* [User school](#user-school)
 * [Dashboard](#dashboard)
 * [File Structure](#file-structure)
 * [Browser Support](#browser-support)
@@ -75,7 +75,7 @@ After initializing a fresh instance of Laravel (and making all the necessary con
 ## Usage
 Register a user or login with default user **admin@argon.com** and password **secret** from your database and start testing (make sure to run the migrations and seeders for these credentials to be available).
 
-Besides the dashboard, the auth pages, the billing and table pages, there is also has an edit profile page. All the necessary files are installed out of the box and all the needed routes are added to `routes/web.php`. Keep in mind that all of the features can be viewed once you login using the credentials provided or by registering your own user. 
+Besides the dashboard, the auth pages, the billing and table pages, there is also has an edit school page. All the necessary files are installed out of the box and all the needed routes are added to `routes/web.php`. Keep in mind that all of the features can be viewed once you login using the credentials provided or by registering your own user. 
 
 
 ## Versions
@@ -100,9 +100,9 @@ Besides the dashboard, the auth pages, the billing and table pages, there is als
 | --- | --- | ---  |
 | [<img src="src/argon-stubs/resources/argon/screens/register.png" width="322" />](https://argon-dashboard-laravel.creative-tim.com/register) | [<img src="src/argon-stubs/resources/argon/screens/login.png" width="322" />](https://argon-dashboard-laravel.creative-tim.com/login)  | [<img src="src/argon-stubs/resources/argon/screens/dashboard.png" width="322" />](https://argon-dashboard-laravel.creative-tim.com/dashboard)
 
-| Forgot Password Page | Reset Password Page | Profile Page  |
+| Forgot Password Page | Reset Password Page | school Page  |
 | --- | --- | ---  |
-| [<img src="src/argon-stubs/resources/argon/screens/reset-password.png" width="322" />](https://argon-dashboard-laravel.creative-tim.com/reset-password)  | [<img src="src/argon-stubs/resources/argon/screens/change-password.png" width="322" />](https://argon-dashboard-laravel.creative-tim.com/login) | [<img src="src/argon-stubs/resources/argon/screens/profile.png" width="322" />](https://argon-dashboard-laravel.creative-tim.com/profile)
+| [<img src="src/argon-stubs/resources/argon/screens/reset-password.png" width="322" />](https://argon-dashboard-laravel.creative-tim.com/reset-password)  | [<img src="src/argon-stubs/resources/argon/screens/change-password.png" width="322" />](https://argon-dashboard-laravel.creative-tim.com/login) | [<img src="src/argon-stubs/resources/argon/screens/school.png" width="322" />](https://argon-dashboard-laravel.creative-tim.com/school)
 [View More](https://www.creative-tim.com/product/argon-dashboard-laravel)
 
 ## Documentation
@@ -200,10 +200,10 @@ The `App/Http/Controllers/ChangePasswordController.php` helps the user reset the
     }
 ```
 
-### User Profile
-The profile can be accessed by a logged in user by clicking "**Profile**" from the sidebar or adding **/profile** in the url. The user can add information like phone number, location, description or change the name and email.
+### User school
+The school can be accessed by a logged in user by clicking "**school**" from the sidebar or adding **/school** in the url. The user can add information like phone number, location, description or change the name and email.
 
-The `App/Http/Controllers/UserProfileController.php ` handles the user's profile information.
+The `App/Http/Controllers/SchoolController.php ` handles the user's school information.
 
 ```
         auth()->user()->update([
@@ -239,7 +239,7 @@ You can access the dashboard either by using the "**Dashboard**" link in the lef
  ┃ ┃ ┣ 📜PageController.php
  ┃ ┃ ┣ 📜RegisterController.php
  ┃ ┃ ┣ 📜ResetPassword.php
- ┃ ┃ ┗ 📜UserProfileController.php
+ ┃ ┃ ┗ 📜SchoolController.php
  ┃ ┣ 📂Middleware
  ┃ ┃ ┣ 📜Authenticate.php
  ┃ ┃ ┣ 📜EncryptCookies.php

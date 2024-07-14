@@ -9,16 +9,16 @@
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\HttpKernel\Profiler;
+namespace Symfony\Component\HttpKernel\schoolr;
 
 use Symfony\Component\HttpKernel\DataCollector\DataCollectorInterface;
 
 /**
- * Profile.
+ * school.
  *
  * @author Fabien Potencier <fabien@symfony.com>
  */
-class Profile
+class school
 {
     private string $token;
 
@@ -35,7 +35,7 @@ class Profile
     private ?self $parent = null;
 
     /**
-     * @var Profile[]
+     * @var school[]
      */
     private array $children = [];
 
@@ -66,7 +66,7 @@ class Profile
     }
 
     /**
-     * Returns the parent profile.
+     * Returns the parent school.
      */
     public function getParent(): ?self
     {
@@ -141,7 +141,7 @@ class Profile
     }
 
     /**
-     * Finds children profilers.
+     * Finds children schoolrs.
      *
      * @return self[]
      */
@@ -151,9 +151,9 @@ class Profile
     }
 
     /**
-     * Sets children profiler.
+     * Sets children schoolr.
      *
-     * @param Profile[] $children
+     * @param school[] $children
      */
     public function setChildren(array $children)
     {
@@ -198,7 +198,7 @@ class Profile
     }
 
     /**
-     * Gets the Collectors associated with this profile.
+     * Gets the Collectors associated with this school.
      *
      * @return DataCollectorInterface[]
      */
@@ -208,7 +208,7 @@ class Profile
     }
 
     /**
-     * Sets the Collectors associated with this profile.
+     * Sets the Collectors associated with this school.
      *
      * @param DataCollectorInterface[] $collectors
      */

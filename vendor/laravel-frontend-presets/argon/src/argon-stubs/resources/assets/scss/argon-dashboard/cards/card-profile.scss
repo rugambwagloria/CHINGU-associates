@@ -1,23 +1,23 @@
 .card {
-  &.card-profile {
+  &.card-school {
     .card-body {
-      padding: $card-profile-body-padding;
+      padding: $card-school-body-padding;
     }
 
     .card-avatar {
-      margin: $card-profile-avatar-margin;
+      margin: $card-school-avatar-margin;
 
       .img {
-        margin-top: $card-profile-img-mt;
-        border-radius: $card-profile-img-radius;
-        width: $card-profile-img-width;
+        margin-top: $card-school-img-mt;
+        border-radius: $card-school-img-radius;
+        width: $card-school-img-width;
       }
     }
 
     p.lead {
       font-weight: $font-weight-bold;
       font-size: $h6-font-size;
-      line-height: $card-profile-p-line-height;
+      line-height: $card-school-p-line-height;
     }
     .table {
       td {

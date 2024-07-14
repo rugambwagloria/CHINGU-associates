@@ -11,7 +11,11 @@ use Laravel\Sanctum\HasApiTokens;
 class School extends Authenticatable
 {
     use HasApiTokens, HasFactory, Notifiable;
-
+    protected $table = 'schools';
+    protected $primaryKey = 'school_regNo';
+public $incrementing = false;
+protected $keyType = 'string';
+public $timestamps=false; 
     /**
      * The attributes that are mass assignable.
      *
@@ -20,18 +24,13 @@ class School extends Authenticatable
     protected $fillable = [
         'school_name',
         'school_regNo',
-       'school_address',
         'school_district',
-        'school_phone',
         'rep_fname',
         'rep_lname',
         'rep_email',
-        'rep_phone',
-        'rep_password', // Hash the password
-        'admin_id',
-        'rep_username',
-        'rep_dob',
-        'image',
+        
+        
+        
 
 
     ];

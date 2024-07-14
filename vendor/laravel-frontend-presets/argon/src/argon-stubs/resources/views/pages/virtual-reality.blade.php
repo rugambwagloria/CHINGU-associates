@@ -11,7 +11,7 @@
                     <div class="row pt-10">
                         <div class="col-lg-1 col-md-1 pt-5 pt-lg-0 ms-lg-5 text-center">
                             <a href="javascript:;" class="avatar avatar-md border-0 d-block mb-2" data-bs-toggle="tooltip"
-                                data-bs-placement="left" title="My Profile">
+                                data-bs-placement="left" title="My school">
                                 <img class="border-radius-lg" alt="Image placeholder" src="/img/team-1.jpg">
                             </a>
                             <button class="btn btn-white border-radius-lg p-2 mt-0 mt-md-2 d-block mx-2 mx-md-0"

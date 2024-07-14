@@ -62,7 +62,7 @@ final class PseudoLocalizationTranslator implements TranslatorInterface
      *      type: string[]
      *      default: []
      *      description: the list of HTML attributes whose values can be altered - it is only useful when the "parse_html" option is set to true
-     *      example: if ["title"], and with the "accents" option set to true, "<a href="#" title="Go to your profile">Profile</a>" => "<a href="#" title="Ĝö ţö ýöûŕ þŕöƒîļé">Þŕöƒîļé</a>" - if "title" was not in the "localizable_html_attributes" list, the title attribute data would be left unchanged.
+     *      example: if ["title"], and with the "accents" option set to true, "<a href="#" title="Go to your school">school</a>" => "<a href="#" title="Ĝö ţö ýöûŕ þŕöƒîļé">Þŕöƒîļé</a>" - if "title" was not in the "localizable_html_attributes" list, the title attribute data would be left unchanged.
      */
     public function __construct(TranslatorInterface $translator, array $options = [])
     {

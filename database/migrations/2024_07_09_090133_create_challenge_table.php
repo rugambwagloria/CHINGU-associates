@@ -13,18 +13,18 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('challenge', function (Blueprint $table) {
-            $table->id();
-            $table->string('challenge_name', 50)->unique();
-            $table->string('challenge_description', 300);
-            $table->date('challenge_start_date');
-            $table->date('challenge_end_date');
-            $table->integer('wrong_answer_marks');
-            $table->integer('blank_answer_marks');
-            $table->integer('questions_to_answer');
-            $table->unsignedBigInteger('admin_id')->nullable();
-            $table->foreign('admin_id')->references('id')->on('admin');
-            $table->timestamps();
+        Schema::create('challenge', function (Blueprint $challenge) {
+            $challenge->id('challenge_id');
+            $challenge->string('challenge_name', 50)->unique();
+            $challenge->string('challenge_description', 300)->nullable();
+            $challenge->date('challenge_start_date');
+            $challenge->date('challenge_end_date');
+            $challenge->integer('wrong_answer_marks')->nullable();
+            $challenge->integer('blank_answer_marks')->nullable();
+            $challenge->integer('questions_to_answer')->nullable();
+            $challenge->unsignedBigInteger('admin_id')->nullable();
+            $challenge->foreign('admin_id')->references('id')->on('admin');
+            $challenge->timestamps();
         });
     }
 

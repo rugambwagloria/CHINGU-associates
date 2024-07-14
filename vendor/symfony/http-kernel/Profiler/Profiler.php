@@ -9,7 +9,7 @@
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\HttpKernel\Profiler;
+namespace Symfony\Component\HttpKernel\schoolr;
 
 use Psr\Log\LoggerInterface;
 use Symfony\Component\HttpFoundation\Exception\ConflictingHeadersException;
@@ -20,13 +20,13 @@ use Symfony\Component\HttpKernel\DataCollector\LateDataCollectorInterface;
 use Symfony\Contracts\Service\ResetInterface;
 
 /**
- * Profiler.
+ * schoolr.
  *
  * @author Fabien Potencier <fabien@symfony.com>
  */
-class Profiler implements ResetInterface
+class schoolr implements ResetInterface
 {
-    private ProfilerStorageInterface $storage;
+    private schoolrStorageInterface $storage;
 
     /**
      * @var DataCollectorInterface[]
@@ -37,7 +37,7 @@ class Profiler implements ResetInterface
     private bool $initiallyEnabled = true;
     private bool $enabled = true;
 
-    public function __construct(ProfilerStorageInterface $storage, ?LoggerInterface $logger = null, bool $enable = true)
+    public function __construct(schoolrStorageInterface $storage, ?LoggerInterface $logger = null, bool $enable = true)
     {
         $this->storage = $storage;
         $this->logger = $logger;
@@ -45,7 +45,7 @@ class Profiler implements ResetInterface
     }
 
     /**
-     * Disables the profiler.
+     * Disables the schoolr.
      *
      * @return void
      */
@@ -55,7 +55,7 @@ class Profiler implements ResetInterface
     }
 
     /**
-     * Enables the profiler.
+     * Enables the schoolr.
      *
      * @return void
      */
@@ -70,39 +70,39 @@ class Profiler implements ResetInterface
     }
 
     /**
-     * Loads the Profile for the given Response.
+     * Loads the school for the given Response.
      */
-    public function loadProfileFromResponse(Response $response): ?Profile
+    public function loadschoolFromResponse(Response $response): ?school
     {
         if (!$token = $response->headers->get('X-Debug-Token')) {
             return null;
         }
 
-        return $this->loadProfile($token);
+        return $this->loadschool($token);
     }
 
     /**
-     * Loads the Profile for the given token.
+     * Loads the school for the given token.
      */
-    public function loadProfile(string $token): ?Profile
+    public function loadschool(string $token): ?school
     {
         return $this->storage->read($token);
     }
 
     /**
-     * Saves a Profile.
+     * Saves a school.
      */
-    public function saveProfile(Profile $profile): bool
+    public function saveschool(school $school): bool
     {
         // late collect
-        foreach ($profile->getCollectors() as $collector) {
+        foreach ($school->getCollectors() as $collector) {
             if ($collector instanceof LateDataCollectorInterface) {
                 $collector->lateCollect();
             }
         }
 
-        if (!($ret = $this->storage->write($profile)) && null !== $this->logger) {
-            $this->logger->warning('Unable to store the profiler information.', ['configured_storage' => $this->storage::class]);
+        if (!($ret = $this->storage->write($school)) && null !== $this->logger) {
+            $this->logger->warning('Unable to store the schoolr information.', ['configured_storage' => $this->storage::class]);
         }
 
         return $ret;
@@ -119,7 +119,7 @@ class Profiler implements ResetInterface
     }
 
     /**
-     * Finds profiler tokens for the given criteria.
+     * Finds schoolr tokens for the given criteria.
      *
      * @param int|null      $limit  The maximum number of tokens to return
      * @param string|null   $start  The start date to search from
@@ -138,41 +138,41 @@ class Profiler implements ResetInterface
     /**
      * Collects data for the given Response.
      */
-    public function collect(Request $request, Response $response, ?\Throwable $exception = null): ?Profile
+    public function collect(Request $request, Response $response, ?\Throwable $exception = null): ?school
     {
         if (false === $this->enabled) {
             return null;
         }
 
-        $profile = new Profile(substr(hash('sha256', uniqid(mt_rand(), true)), 0, 6));
-        $profile->setTime(time());
-        $profile->setUrl($request->getUri());
-        $profile->setMethod($request->getMethod());
-        $profile->setStatusCode($response->getStatusCode());
+        $school = new school(substr(hash('sha256', uniqid(mt_rand(), true)), 0, 6));
+        $school->setTime(time());
+        $school->setUrl($request->getUri());
+        $school->setMethod($request->getMethod());
+        $school->setStatusCode($response->getStatusCode());
         try {
-            $profile->setIp($request->getClientIp());
+            $school->setIp($request->getClientIp());
         } catch (ConflictingHeadersException) {
-            $profile->setIp('Unknown');
+            $school->setIp('Unknown');
         }
 
         if ($request->attributes->has('_virtual_type')) {
-            $profile->setVirtualType($request->attributes->get('_virtual_type'));
+            $school->setVirtualType($request->attributes->get('_virtual_type'));
         }
 
         if ($prevToken = $response->headers->get('X-Debug-Token')) {
             $response->headers->set('X-Previous-Debug-Token', $prevToken);
         }
 
-        $response->headers->set('X-Debug-Token', $profile->getToken());
+        $response->headers->set('X-Debug-Token', $school->getToken());
 
         foreach ($this->collectors as $collector) {
             $collector->collect($request, $response, $exception);
 
             // we need to clone for sub-requests
-            $profile->addCollector(clone $collector);
+            $school->addCollector(clone $collector);
         }
 
-        return $profile;
+        return $school;
     }
 
     /**
@@ -187,7 +187,7 @@ class Profiler implements ResetInterface
     }
 
     /**
-     * Gets the Collectors associated with this profiler.
+     * Gets the Collectors associated with this schoolr.
      */
     public function all(): array
     {
@@ -195,7 +195,7 @@ class Profiler implements ResetInterface
     }
 
     /**
-     * Sets the Collectors associated with this profiler.
+     * Sets the Collectors associated with this schoolr.
      *
      * @param DataCollectorInterface[] $collectors An array of collectors
      *

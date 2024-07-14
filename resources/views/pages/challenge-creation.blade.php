@@ -1,67 +1,63 @@
-@extends('layouts.app',['class' => 'g-sidenav-show bg-gray-100'])
+@extends('layouts.app', ['class' => 'g-sidenav-show bg-gray-100'])
 
 
-  @include('layouts.navbars.auth.topnav', ['title' => 'Challenge Creation'])
-<div  style="text-align:center;">
-    <!-- Active Challenges Section -->
-    <div class="active-challenges">
-        <h2>Active Challenges</h2>
-
-    </div>
+@include('layouts.navbars.auth.topnav', ['title' => 'Challenge Creation'])
+<div style="text-align:center;">
 
     <!-- Challenge Creation Section -->
-    <div class="challenge-creation"style="visibility:visible;">
-        <h2>Challenge Creation</h2>
-        <form action="{{ route('challengeIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIII+Os.store') }}" method="POST">
+    <div class="create-challenge">
+        <h2>Create a New Challenge</h2>
+        <form method="POST" action="{{ route('challenges.store') }}" style="width: 60%; margin: 0 auto; padding: 20px; border: 1px solid #ddd; box-shadow: 0px 2px 5px rgba(0,0,0,0.1);">
             @csrf
             <div class="form-group">
-                <label for="challengeName">Challenge Name</label>
-                <input type="text" id="challengeName" name="challenge_name" required>
+                <label for="name">Challenge Name:</label>
+                <input type="text" id="name" name="challenge_name" class="form-control" required>
             </div>
             <div class="form-group">
-                <label for="challengeNumber">Challenge Number</label>
-                <input type="text" id="challengeNumber" name="challenge_number" required>
+                <label for="number">Challenge Number:</label>
+                <input type="number" id="number" name="challenge_description" class="form-control" required>
             </div>
             <div class="form-group">
-                <label for="startDate">Start Date</label>
-                <input type="date" id="startDate" name="start_date" required>
+                <label for="start_date">Start Date:</label>
+                <input type="date" id="start_date" name="challenge_start_date" class="form-control" required>
             </div>
             <div class="form-group">
-                <label for="finishDate">Finish Date</label>
-                <input type="date" id="finishDate" name="finish_date" required>
+                <label for="finish_date">Finish Date:</label>
+                <input type="date" id="finish_date" name="challenge_end_date" class="form-control" required>
+            </div>
+             <div class="form-group">
+                
             </div>
             <div class="form-group">
-                <input type="checkbox" id="markForAnswer" name="mark_for_answer">
-                <label for="markForAnswer">Mark work for answer</label>
+                <label for="wrong_answer_marks">Wrong Answer Marks:</label>
+                <input type="number" id="wrong_answer_marks" name="wrong_answer_marks" class="form-control" required>
+            </div>
+            <div class="form-group">
+                <label for="blank_answer_marks">Blank Answer Marks:</label>
+                <input type="number" id="blank_answer_marks" name="blank_answer_marks" class="form-control" required>
+            </div>
+            <div class="form-group">
+                <label for="questions_to_answer">Questions to Answer:</label>
+                <input type="number" id="questions_to_answer" name="questions_to_answer" class="form-control" required>
             </div>
             <button type="submit" class="btn btn-primary">Create Challenge</button>
         </form>
     </div>
 
-    <!-- Finished Challenges Section -->
-    <div class="finished-challenges">
-        <h2>Finished Challenges</h2>
-        <!-- Content here -->
-    </div>
-
     <!-- Document Upload Section -->
     <div class="document-upload">
         <h2>Question and Answer Document Upload</h2>
-        <form  method="POST" action="/upload" enctype="multipart/form-data">
-    @csrf
-    <input type="file" name="file">
-    <button type="submit">Upload</button>
-
+        <form method="POST" action="{{ route('document.upload') }}" enctype="multipart/form-data">
+            @csrf
             <div class="form-group">
-                <label for="questionCode">Question Code</label>
-                <input type="text" id="questionCode" name="question_code" required>
+                <label for="questionDocument">Question Document (Excel)</label>
+                <input type="file" id="questionDocument" name="question_document" required>
             </div>
             <div class="form-group">
-                <label for="answers">Answers.txt</label>
-                <input type="file" id="answers" name="answers" required>
+                <label for="answerDocument">Answer Document (Excel)</label>
+                <input type="file" id="answerDocument" name="answer_document" required>
             </div>
-            <button type="submit" class="btn btn-primary">Upload</button>
+            <button type="submit" class="btn btn-primary">Upload Questions</button>
         </form>
     </div>
 </div>
-

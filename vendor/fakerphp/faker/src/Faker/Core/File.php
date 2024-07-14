@@ -100,7 +100,7 @@ final class File implements Extension\FileExtension
         'application/vnd.hydrostatix.sof-data' => 'sfd-hdstx',
         'application/vnd.ibm.minipay' => 'mpy',
         'application/vnd.ibm.secure-container' => 'sc',
-        'application/vnd.iccprofile' => ['icc', 'icm'],
+        'application/vnd.iccschool' => ['icc', 'icm'],
         'application/vnd.igloader' => 'igl',
         'application/vnd.immervision-ivp' => 'ivp',
         'application/vnd.kde.karbon' => 'karbon',

@@ -31,9 +31,9 @@ class PageController extends Controller
         return view("pages.rtl");
     }
 
-    public function profile()
+    public function school()
     {
-        return view("pages.profile-static");
+        return view("pages.school-static");
     }
 
     public function signin()

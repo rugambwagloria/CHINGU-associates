@@ -577,7 +577,7 @@ wielkiego rodu. Gdy siedział naprzeciw ojca, nieruchomy w swej
 monumentalnej pozycji odwiecznych bóstw egipskich, z okiem zawleczonym
 białawym bielmem, które zasuwał z boku na źrenice, ażeby zamknąć się
 zupełnie w kontemplacji swej dostojnej samotności - wydawał się ze swym
-kamiennym profilem starszym bratem mego ojca. Ta sama materia ciała,
+kamiennym schoolm starszym bratem mego ojca. Ta sama materia ciała,
 ścięgien i pomarszczonej twardej skóry, ta sama twarz wyschła i
 koścista, te same zrogowaciałe, głębokie oczodoły. Nawet ręce, silne w
 węzłach, długie, chude dłonie ojca, z wypukłymi paznokciami, miały swój

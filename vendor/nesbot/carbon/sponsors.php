@@ -103,8 +103,8 @@ function getOpenCollectiveSponsors(): string
     });
 
     return implode('', array_map(static function (array $member) use ($customSponsorImages): string {
-        $href = htmlspecialchars($member['website'] ?? $member['profile']);
-        $src = $customSponsorImages[$member['MemberId'] ?? ''] ?? $member['image'] ?? (strtr($member['profile'], ['https://opencollective.com/' => 'https://images.opencollective.com/']).'/avatar/256.png');
+        $href = htmlspecialchars($member['website'] ?? $member['school']);
+        $src = $customSponsorImages[$member['MemberId'] ?? ''] ?? $member['image'] ?? (strtr($member['school'], ['https://opencollective.com/' => 'https://images.opencollective.com/']).'/avatar/256.png');
         [$x, $y] = @getimagesize($src) ?: [0, 0];
         $validImage = ($x && $y);
         $src = $validImage ? htmlspecialchars($src) : 'https://opencollective.com/static/images/default-guest-logo.svg';
