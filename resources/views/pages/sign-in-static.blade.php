@@ -4,12 +4,13 @@
     <div class="container position-sticky z-index-sticky top-0">
         <div class="row">
             <div class="col-12">
+            <body style="background-image: url('/images/pupil.jpg');">
                 <!-- Navbar -->
                 <nav
                     class="navbar navbar-expand-lg blur border-radius-lg top-0 z-index-3 shadow position-absolute mt-4 py-2 start-0 end-0 mx-4">
                     <div class="container-fluid">
                         <a class="navbar-brand font-weight-bolder ms-lg-0 ms-3 " href="{{ route('home') }}">
-                            Argon Dashboard 2 Laravel
+                            Mathematics Challenge Competition
                         </a>
                         <button class="navbar-toggler shadow-none ms-2" type="button" data-bs-toggle="collapse"
                             data-bs-target="#navigation" aria-controls="navigation" aria-expanded="false"
@@ -49,10 +50,10 @@
                                 </li>
                             </ul>
                             <ul class="navbar-nav d-lg-block d-none">
-                                <li class="nav-item">
+                               <!-- <li class="nav-item">
                                     <a href="https://www.creative-tim.com/product/argon-dashboard-laravel" target="_blank"
                                         class="btn btn-sm mb-0 me-1 btn-primary">Free Download</a>
-                                </li>
+                                </li>-->
                             </ul>
                         </div>
                     </div>
@@ -65,7 +66,7 @@
         <section>
             <div class="page-header min-vh-100">
                 <div class="container">
-                    <div class="row">
+                    < class="row">
                         <div class="col-xl-4 col-lg-5 col-md-7 d-flex flex-column mx-lg-0 mx-auto">
                             <div class="card card-plain">
                                 <div class="card-header pb-0 text-start">
@@ -104,10 +105,11 @@
                         <div class="col-6 d-lg-flex d-none h-100 my-auto pe-0 position-absolute top-0 end-0 text-center justify-content-center flex-column">
                                <div class="position-relative bg-gradient-primary h-100 m-3 px-7 border-radius-lg d-flex flex-column justify-content-center overflow-hidden">
         <!-- Insert the image here -->
-                                   <img src="public/mathematicsimages/mathematics challenge image.jpg" alt="Mathematics Challenge Image" style="width: 100%; height: auto; object-fit: cover;">
+                                  <img src="/mathematicsimages/mathematics challenge image.jpg" alt="Mathematics Challenge Image" style="width: 100%; height: auto; object-fit: cover;">
                                    <span class="mask bg-gradient-primary opacity-6"></span>
                                 </div>
                         </div>
+</body>
 
                     </div>
                 </div>

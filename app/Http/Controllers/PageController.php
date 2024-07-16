@@ -23,7 +23,7 @@ class PageController extends Controller
 
     public function vr()
     {
-        return view("pages.virtual-reality");
+        return view("pages.school-tables");
     }
 
     public function rtl()
@@ -45,4 +45,9 @@ class PageController extends Controller
     {
         return view("pages.sign-up-static");
     }
+    public function school()
+    {
+        return view("pages.school");
+
+}
 }
