@@ -20,15 +20,20 @@ class PageController extends Controller
 
         return abort(404);
     }
-
-    public function vr()
+    public function home()
     {
-        return view("pages.school-tables");
+        return view("pages.home");
+    }
+    public function contact(){
+        return view("pages.contact");
     }
 
-    public function rtl()
+
+    
+
+    public function transcedence()
     {
-        return view("pages.rtl");
+        return view("pages.transcedence");
     }
 
     public function profile()
@@ -40,14 +45,24 @@ class PageController extends Controller
     {
         return view("pages.sign-in-static");
     }
+    public function vision()
+    {
+        return view("pages.vision");
+    }
+    
+    public function showRotatingPages()
+{
+    return view('pages.works');
+}
+
 
     public function signup()
     {
         return view("pages.sign-up-static");
     }
-    public function school()
+    public function aboutUs()
     {
-        return view("pages.school");
+        return view("pages.aboutUs");
 
 }
 }

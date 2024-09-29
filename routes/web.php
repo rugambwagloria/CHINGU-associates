@@ -29,35 +29,41 @@ use App\Http\Controllers\ChangePassword;
         
             
 
-Route::get('/', function () {return redirect('/dashboard');})->middleware('auth');
-	Route::get('/register', [RegisterController::class, 'create'])->middleware('guest')->name('register');
-	Route::post('/register', [RegisterController::class, 'store'])->middleware('guest')->name('register.perform');
-	Route::get('/login', [LoginController::class, 'show'])->middleware('guest')->name('login');
-	Route::post('/login', [LoginController::class, 'login'])->middleware('guest')->name('login.perform');
-	Route::get('/reset-password', [ResetPassword::class, 'show'])->middleware('guest')->name('reset-password');
-	Route::post('/reset-password', [ResetPassword::class, 'send'])->middleware('guest')->name('reset.perform');
-	Route::get('/change-password', [ChangePassword::class, 'show'])->middleware('guest')->name('change-password');
-	Route::post('/change-password', [ChangePassword::class, 'update'])->middleware('guest')->name('change.perform');
-	Route::get('/dashboard', [HomeController::class, 'index'])->name('home')->middleware('auth');
-Route::group(['middleware' => 'auth'], function () {
-	Route::get('/school-tables', [PageController::class, 'vr'])->name('school-tables');
-	Route::get('/rtl', [PageController::class, 'rtl'])->name('rtl');
-	Route::get('/profile-static', [PageController::class, 'school'])->name('profile-static'); 
+Route::get('/', function () {return redirect('/dashboard');})->middleware('guest');
+
+
+	//Route::get('/register', [RegisterController::class, 'create'])->middleware('guest')->name('register');
+	//Route::post('/register', [RegisterController::class, 'store'])->middleware('guest')->name('register.perform');
+	//Route::get('/home', [LoginController::class, 'home'])->middleware('guest')->name('home');
+	//Route::post('/login', [LoginController::class, 'login'])->middleware('guest')->name('login.perform');
+	//Route::get('/reset-password', [ResetPassword::class, 'show'])->middleware('guest')->name('reset-password');
+	//Route::post('/reset-password', [ResetPassword::class, 'send'])->middleware('guest')->name('reset.perform');
+	//Route::get('/change-password', [ChangePassword::class, 'show'])->middleware('guest')->name('change-password');
+	//Route::post('/change-password', [ChangePassword::class, 'update'])->middleware('guest')->name('change.perform');
+	//Route::get('/dashboard', [HomeController::class, 'index'])->middleware('guest')->name('dashboard');
+	
+
+	Route::get('/works', [PageController::class, 'showRotatingPages'])->name('works');
+	Route::get('/transcedence', [PageController::class, 'transcedence'])->name('transcedence');
+	Route::get('/dashboard', [HomeController::class, 'index'])->name('dashboard');
+	Route::get('/contact', [PageController::class, 'contact'])->name('contact'); 
 	Route::get('/sign-in-static', [PageController::class, 'signin'])->name('sign-in-static');
 	Route::get('/sign-up-static', [PageController::class, 'signup'])->name('sign-up-static'); 
 	Route::get('/pages/{page}', [PageController::class, 'index'])->name('page');
 	Route::post('logout', [LoginController::class, 'logout'])->name('logout');
+	Route::get('/aboutUs', [PageController::class, 'aboutUs'])->name('aboutUs');
+	Route::post('/aboutUs', [PageController::class, 'aboutUs'])->name('aboutUs');
+	
 
-});
 //Posts endpoint
 
-Route::get('school', [ App\Http\Controllers\SchoolController::class, 'create'])->name('school');
-Route::post('school', [ App\Http\Controllers\SchoolController::class, 'store'])->name('school.store');
+//Route::get('aboutUs', [ App\Http\Controllers\SchoolController::class, 'create'])->name('aboutUs');
+//Route::post('school', [ App\Http\Controllers\SchoolController::class, 'store'])->name('school.store');
 
 
 // Main page route
 
-Route::get('/challenge-creation', [App\Http\Controllers\ChallengeController::class, 'create'])->name('challenges.create');
-Route::get('/challenge-index', [App\Http\Controllers\ChallengeController::class, 'index'])->name('challenges.index');
-Route::post('/challenge-creation', [App\Http\Controllers\ChallengeController::class, 'store'])->name('challenges.store');
-Route::post('/challenge-creation/upload', [App\Http\Controllers\ChallengeController::class, 'uploadQuestions'])->name('document.upload');
+//Route::get('/home', [App\Http\Controllers\PageController::class, 'home'])->name('home');
+Route::get('/vision', [App\Http\Controllers\PageController::class, 'vision'])->name('vision');
+Route::post('/vision', [App\Http\Controllers\PageController::class, 'vision'])->name('vision');
+Route::post('/home', [App\Http\Controllers\PageController::class, 'home'])->name('home');

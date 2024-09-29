@@ -10,7 +10,7 @@ class SchoolController extends Controller
    
     public function create()
     {
-        return view('pages.school');
+        return view('pages.sch');
     }
      public function show()
     {

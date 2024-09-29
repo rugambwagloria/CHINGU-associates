@@ -1,63 +1,68 @@
-@extends('layouts.app',['class' => 'g-sidenav-show bg-gray-100'])
-
-
-  @include('layouts.navbars.auth.topnav', ['title' => 'Challenge Creation'])
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Challenge List</title>
-    <!-- Add your CSS links here -->
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Shop Page</title>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+  }
+  .shop-section, .product-launches {
+    margin: 20px;
+  }
+  .shop-section h2, .product-launches h2 {
+    font-size: 24px;
+    margin-bottom: 10px;
+  }
+  .shop-item, .product-item {
+    display: inline-block;
+    width: 18%;
+    margin: 1%;
+    text-align: center;
+    border: 1px solid #ddd;
+    padding: 10px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  }
+  .shop-item img, .product-item img {
+    width: 100%;
+    height: auto;
+  }
+  .shop-item button, .product-item button {
+    margin-top: 10px;
+    padding: 5px 10px;
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    cursor: pointer;
+  }
+  .shop-item button:hover, .product-item button:hover {
+    background-color: #0056b3;
+  }
+</style>
 </head>
-<body style="text-align:center;" >
-    <h1>Challenges</h1>
+<body>
 
-    <!-- Display success message if any -->
-    <?php if(session('success')): ?>
-        <div class="alert alert-success">
-            <?php echo session('success'); ?>
-        </div>
-    <?php endif; ?>
-
-    <!-- Add a link to create a new challenge -->
-    <a href="<?php echo route('challenges.create'); ?>">Create New Challenge</a>
-
-    <!-- Check if there are any challenges -->
-    <?php if($allChallenges->count() > 0): ?>
-        <table>
-            <thead>
-                <tr>
-                    <th>Name</th>
-                    <th>description</th>
-                    <th>Start Date</th>
-                    <th>Finish Date</th>
-                    <th>Mark for Answer</th>
-                    <th>Actions</th>
-                </tr>
-            </thead>
-            <tbody>
-                <?php foreach($allChallenges as $challenge): ?>
-                    <tr>
-                        <td><?php echo $challenge->challenge_name; ?></td>
-                        <td><?php echo $challenge->challenge_id; ?></td>
-                        <td><?php echo $challenge->challenge_start_date; ?></td>
-                        <td><?php echo $challenge->challenge_date; ?></td>
-                        <td><?php echo $challenge->mark_for_answer;?>/td>
-                        <td>
-                            <a href="<?php echo route('challenges.show', $challenge->id); ?>">View</a>
-                            <a href="<?php echo route('challenges.edit', $challenge->id); ?>">Edit</a>
-                            <!-- Add a delete form here if needed -->
-                        </td>
-                    </tr>
-                <?php endforeach; ?>
-            </tbody>
-        </table>
-    <?php else: ?>
-        <p>No challenges found.</p>
-    <?php endif; ?>
-
-    
-</body>
-</html>
+<div class="shop-section">
+  <h2>Shops to get you started!</h2>
+  <div class="shop-item">
+    <img src="path-to-image.jpg" alt="Baby Step Boutique">
+    <p>Baby Step Boutique</p>
+    <button onclick="viewStore()">View store</button>
+  </div>
+  <div class="shop-item">
+    <img src="path-to-image.jpg" alt="Tayebwa's crochet">
+    <p>Tayebwa's crochet</p>
+    <button onclick="viewStore()">View store</button>
+  </div>
+  <div class="shop-item">
+    <img src="path-to-image.jpg" alt="Girly fashion line">
+    <p>Girly fashion line</p>
+    <button onclick="viewStore()">View store</button>
+  </div>
+  <div class="shop-item">
+    <img src="path-to-image.jpg" alt="The Nsawo plug">
+    <p>The Nsawo plug</p>
+    <button onclick="viewStore()">View store</button>
+  </div>
+  <div class="shop-item">

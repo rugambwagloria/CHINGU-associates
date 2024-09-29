@@ -10,11 +10,9 @@ use PhpOffice\PhpSpreadsheet\IOFactory;
 class ChallengeController extends Controller
 {
     public function create()
-{
+ // Create a new Challenge instance
     
-    $challenge = new Challenge(); // Create a new Challenge instance
-    
-    return view('pages.challenge-creation', compact( 'challenge'));
+    return view('pages.home', compact( 'home'));
 }
     
         public function index()
@@ -36,25 +34,11 @@ class ChallengeController extends Controller
         
         ]);
 
-        $challenge = new Challenge();
-        $challenge->challenge_name = $request->input('challenge_name');
-        $challenge->challenge_description = $request->input('challenge_description');
-        $challenge->challenge_start_date = $request->input('challenge_start_date');
-        $challenge->challenge_end_date = $request->input('challenge_end_date');
-        $challenge->wrong_answer_marks=$request->input('wrong_answer_marks');
-        $challenge->blank_answer_marks=$request->input('blank_answer_marks');
-        $challenge->questions_to_answer=$request->input('questions_to_answer');
-    
-        $challenge->save();
+       
 
-        return redirect()->route('challenges.create')->with('success', 'Challenge created successfully!');
-    
-     }catch (\Exception $e) {
-        \Log::error('Database error: ' . $e->getMessage());
-        return back()->with('error', 'An error occurred while creating the challenge.');
-    }
+       
       } 
-
+    }
 
 
     public function uploadQuestions(Request $request)
