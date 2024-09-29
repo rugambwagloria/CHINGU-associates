@@ -39,16 +39,7 @@
             background-color: rgba(255, 255, 255, 0.9);
             z-index: 1;
         }
-        .image {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-image: url('/images/open-concept-kitchen-dining-room-and-living-room-with-floor-plans.webp');
-            background-size: cover;
-            background-position: center;
-        }
+        
         h1 {
             font-size: 3vw;
             color: #333;
@@ -137,6 +128,54 @@
             text-decoration: none;
             margin-left: 20px;
         }
+        .image {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+        }
+        .image::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(to right, rgba(0,0,0,0.1) 0%, rgba(0,0,0,0.3) 100%);
+    z-index: 1;
+}
+        .image img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0;
+            transition: opacity 2s ease-in-out;
+        }
+        .image img {
+    transition: opacity 2s ease-in-out, transform 10s ease-in-out;
+    transform: scale(1.1);
+}
+.image img.active {
+    opacity: 1;
+    transform: scale(1);
+}
+       
+        .image::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            clip-path: circle(70% at 100% 50%);
+            z-index: 1;
+        }
+
     </style>
 </head>
 <body>
@@ -153,14 +192,46 @@
         
     </div>
     <div class="container">
+        <div class="image">
+            <img src="/images/land.png" alt="Image 1">
+            <img src="/images/sketch.png" alt="Image 2">
+            <img src="/images/workss.png" alt="Image 3">
+            <img src="/images/bYp05aaH_Lv95_1024.webp" alt="Image 4">
+        </div>
+    <div class="container">
         <div class="image"></div>
         <div class="content">
-        <a href="{{ route('dashboard') }}" class="button-link">BACK</a>
             <h1>About our<br>COMPANY</h1>
             <p>We focus on designing spaces that are both functional and visually appealing for residential and commercial clients. By partnering with architects, builders, and homeowners, we transform interiors into beautiful and harmonious environments.</p>
             <p>Whether it's a cozy home, a boutique hotel, or an office space, our interior designers take into account factors like layout, color schemes, furniture, lighting, and decor to create spaces that reflect the client's vision and lifestyle. Our aim is to enhance both the functionality and aesthetic appeal of the space, making it comfortable, inviting, and personalized.</p>
         </div>
-        <footer style="margin-top: 50px; padding-top: 20px; border-top: 1px solid #333; text-align: center;">
+        <!--<footer style="margin-top: 50px; padding-top: 20px; border-top: 1px solid #333; text-align: center;">
+            <div style="display: flex; justify-content: space-between; margin-bottom: 20px;">
+                
+            </div>
+            <div style="color: #666;">
+            CHINGU DESIGNS. Your trusted company.
+            </div>
+        </footer>-->
+    </div>
+    
+    <script>
+        const images = document.querySelectorAll('.image img');
+        let currentIndex = 0;
+
+        function showNextImage() {
+            images[currentIndex].classList.remove('active');
+            currentIndex = (currentIndex + 1) % images.length;
+            images[currentIndex].classList.add('active');
+        }
+
+        // Show the first image immediately
+        images[0].classList.add('active');
+
+        // Change image every 5 seconds
+        setInterval(showNextImage, 2000);
+    </script>
+    <footer style="margin-top: 50px; padding-top: 20px; border-top: 1px solid #333; text-align: center;">
             <div style="display: flex; justify-content: space-between; margin-bottom: 20px;">
                 
             </div>
@@ -168,10 +239,5 @@
             CHINGU DESIGNS. Your trusted company.
             </div>
         </footer>
-    </div>
-    
-    <script>
-        // JavaScript could be added here if needed
-    </script>
 </body>
 </html>
