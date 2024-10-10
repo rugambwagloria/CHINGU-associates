@@ -1,0 +1,2 @@
+<?php
+school_address
